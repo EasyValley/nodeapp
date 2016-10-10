@@ -1,0 +1,9 @@
+.c1 {
+  background: red; }
+  .c1 span {
+    width: 200px;
+    display: block;
+    height: 300px; }
+
+.c2 {
+  background: blue; }
