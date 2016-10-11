@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        .c {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            user-select: none;
+        }
+        .c2{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="c">
+    hello world
+</div>
+<div class="c">
+    hello world hel
+    <div class="c2">
+        afa
+    </div>
+</div>
+</body>
+</html>
+<script src="./libs/zepto.js"></script>
+<script>
+    $.fn.tap =  function (callback) {
+            var lastTime = 0;
+            var tapTime = 0;
+            $(this).on("touchstart", function(){
+                lastTime = +new Date();
+            });
+            $(this).on("touchend", function(e){
+                tapTime = Date.now() - lastTime;
+                if (tapTime < 200) {
+                    callback.call(this, e);
+                }
+                e.preventDefault();
+            });
+
+    };
+</script>
